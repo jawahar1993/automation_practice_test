@@ -16,4 +16,8 @@ public class HomePage {
 
         return PageFactory.initElements(driver, TshirtCatPage.class);
     }
+
+    public boolean myAccountLabelExist(WebDriver driver) {
+        return driver.findElements(By.xpath("//span[text()='My account']")).size()>0;
+    }
 }
