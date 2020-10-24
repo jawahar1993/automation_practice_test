@@ -38,7 +38,7 @@ public class Assignment1 {
         HomePage homePage = signInPage.clickLogin(driver);
 
         //6. Verify that user signed in
-        Assert.assertTrue(driver.findElements(By.xpath("//span[text()='My account']")).size()>0);
+        Assert.assertTrue("My Account label should exist", homePage.myAccountLabelExist(driver));
 
         //7. Select the category as T-Shirts
         TshirtCatPage tshirtCatPage = homePage.clickCatTshirts(driver);
@@ -50,11 +50,11 @@ public class Assignment1 {
         CheckoutPage checkoutPage = specificItemPage.clickAddToCart(driver);
 
         //10. Assert the message
-        Assert.assertTrue(driver.findElements(By.xpath("//div/h2[contains(.,'Product successfully added to your shopping cart')]")).size()>0);
-        Assert.assertTrue(driver.findElements(By.xpath("//div/span[text()='Faded Short Sleeve T-shirts']")).size()>0);
-        Assert.assertTrue(driver.findElements(By.xpath("//div/span[text()='Orange, S']")).size()>0);
-        Assert.assertTrue(driver.findElements(By.xpath("//div/strong[text()='Quantity'] /following-sibling::span[text()='1']")).size()>0);
-        Assert.assertTrue(driver.findElements(By.xpath("//div/strong[text()='Total'] /following-sibling::span[text()='$16.51']")).size()>0);
+        Assert.assertTrue("Success message should be displayed", checkoutPage.successMessageLabelExist(driver));
+        Assert.assertTrue("Selected item name should be displayed", checkoutPage.itemNameExist(driver));
+        Assert.assertTrue("Selected item colour and size should be displayed", checkoutPage.itemColourSizeExist(driver));
+        Assert.assertTrue("Selected item quantity should be displayed", checkoutPage.itemQuantityExist(driver));
+        Assert.assertTrue("Selected item price should be displayed", checkoutPage.itemPriceExist(driver));
 
         //11. Click on proceed to checkout
         checkoutPage.clickCheckoutButton(driver);
