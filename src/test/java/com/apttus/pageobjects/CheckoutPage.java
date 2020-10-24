@@ -1,13 +1,13 @@
 package com.apttus.pageobjects;
 
+import com.apttus.util.WebUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class CheckoutPage {
     public void clickCheckoutButton(WebDriver driver) {
-        WebElement proceedToCheckoutButton = driver.findElement(By.xpath("//a[@title='Proceed to checkout']"));
-        proceedToCheckoutButton.click();
+        WebUtil.click(driver, By.xpath("//a[@title='Proceed to checkout']"));
     }
 
     public boolean successMessageLabelExist(WebDriver driver) {
